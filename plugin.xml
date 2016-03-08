@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="com.esquel.webprint"
+      version="1.0.0">
+    <name>WebPrint</name>
+    <description>Web Print for Cordova</description>
+    <license>MIT</license>
+    <keywords>cordova,webprint</keywords>
+
+    <js-module src="www/webprint.js" name="WebPrint">
+        <clobbers target="WebPrint" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WebPrint" >
+                <param name="android-package" value="com.esquel.webprint.WebPrint"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/WebPrint.java" target-dir="src/com/esquel/webprint" />
+    </platform>
+</plugin>
