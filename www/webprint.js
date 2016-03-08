@@ -73,9 +73,9 @@
         }, 'WebPrint', 'sendBroadcast', [params]);
     };
 
-    window.WebPrint = new WebPrint();
+    window.webprint = new WebPrint();
     
     // backwards compatibility
     window.plugins = window.plugins || {};
-    window.plugins.WebPrint = window.WebPrint;
+    window.plugins.webprint = window.webprint;
 })(window.PhoneGap || window.Cordova || window.cordova);

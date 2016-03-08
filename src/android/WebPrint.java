@@ -141,8 +141,8 @@ public class WebPrint extends CordovaPlugin {
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                 return true;
 			} else if (action.equals("startConlose")) {
-				Log.i("WebPrint",databack);
-				callbackContext.success(databack);
+				
+				callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK," ³É¹¦"));
 				return true;
 			}
             //return new PluginResult(PluginResult.Status.INVALID_ACTION);
