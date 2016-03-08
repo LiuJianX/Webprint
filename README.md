@@ -1,23 +1,21 @@
-# WebIntent Android Plugin for Cordova 3.X #
-By Boris Smus
-
-Phonegap/Cordova 2.X version available at the [WebIntent](https://github.com/phonegap/phonegap-plugins/tree/master/Android/WebIntent) plugin site.
+# WebPrint Android Plugin for Cordova 3.X #
+By Liu Jian Xiong
 
 ## Adding the Plugin to your project ##
 1. To install the plugin, use the Cordova CLI and enter the following:
 
-`cordova plugin add https://github.com/Initsogar/cordova-webintent.git`
+`cordova plugin add https://github.com/LiuJianX/Webprint.git`
 
 2. Confirm that the following is in your `res/xml/config.xml` file:
 
-`<plugin name="WebIntent" value="com.borismus.webintent.WebIntent" />`
+`<plugin name="WebPrint" value="com.borismus.WebPrint.WebPrint" />`
 
 ## Sample code
 
-Here is an example of using webintent to open an Android .apk package, which then launches the Installer:
+Here is an example of using WebPrint to open an Android .apk package, which then launches the Installer:
 
-    window.plugins.webintent.startActivity({
-          action: window.plugins.webintent.ACTION_VIEW,
+    window.plugins.WebPrint.startActivity({
+          action: window.plugins.WebPrint.ACTION_VIEW,
           url: theFile.toURL(),
           type: 'application/vnd.android.package-archive'
         },
@@ -30,14 +28,14 @@ Here is an example of using webintent to open an Android .apk package, which the
 
 
 ## Using the plugin ##
-The plugin creates the object `window.plugins.webintent` with five methods:
+The plugin creates the object `window.plugins.WebPrint` with five methods:
 
 ### startActivity ###
 Launches an Android intent. For example:
 
 
-    window.plugins.webintent.startActivity({
-        action: window.plugins.webintent.ACTION_VIEW,
+    window.plugins.WebPrint.startActivity({
+        action: window.plugins.WebPrint.ACTION_VIEW,
         url: 'geo:0,0?q=' + address},
         function() {},
         function() {alert('Failed to open URL via Android Intent')};
@@ -47,7 +45,7 @@ Launches an Android intent. For example:
 ### hasExtra ###
 checks if this app was invoked with the specified extra. For example:
 
-    window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
+    window.plugins.WebPrint.hasExtra(window.plugins.WebPrint.EXTRA_TEXT,
         function(has) {
             // has is true iff it has the extra
         }, function() {
@@ -58,7 +56,7 @@ checks if this app was invoked with the specified extra. For example:
 ### getExtra ###
 Gets the extra that this app was invoked with. For example:
 
-    window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+    window.plugins.WebPrint.getExtra(window.plugins.WebPrint.EXTRA_TEXT,
         function(url) {
             // url is the value of EXTRA_TEXT
         }, function() {
@@ -69,7 +67,7 @@ Gets the extra that this app was invoked with. For example:
 ### getUri ###
 Gets the Uri the app was invoked with. For example:
 
-    window.plugins.webintent.getUri(function(url) {
+    window.plugins.WebPrint.getUri(function(url) {
         if(url !== "") {
             // url is the url the intent was launched with
         }
@@ -78,7 +76,7 @@ Gets the Uri the app was invoked with. For example:
 ### onNewIntent ###
 Gets called when onNewIntent is called for the parent activity. Used in only certain launchModes. For example:
 
-    window.plugins.webintent.onNewIntent(function(url) {
+    window.plugins.WebPrint.onNewIntent(function(url) {
         if(url !== "") {
             // url is the url that was passed to onNewIntent
         }
@@ -87,7 +85,7 @@ Gets called when onNewIntent is called for the parent activity. Used in only cer
 ### sendBroadcast ###
 Sends a custom intent passing optional extras
 
-    window.plugins.webintent.sendBroadcast({
+    window.plugins.WebPrint.sendBroadcast({
                 action: 'com.dummybroadcast.action.triggerthing',
                 extras: {
                     'option': true
